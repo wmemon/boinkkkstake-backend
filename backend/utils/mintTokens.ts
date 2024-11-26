@@ -1,5 +1,5 @@
 // https://github.com/solana-labs/solana-program-library/blob/master/token/js/examples/createMintAndTransferTokens.ts
-import { createMint, getMetadataPointerState, getMint, getOrCreateAssociatedTokenAccount, getTokenMetadata, mintTo, TOKEN_2022_PROGRAM_ID } from "@solana/spl-token";
+import { getOrCreateAssociatedTokenAccount, getTokenMetadata, mintTo, TOKEN_2022_PROGRAM_ID } from "@solana/spl-token";
 import { clusterApiUrl, Connection, Keypair,PublicKey } from "@solana/web3.js";
 import bs58 from 'bs58';
 
@@ -13,7 +13,6 @@ const privKeyString = "92LwquA7wkbTwbzfPTt23jvwbvYjDQD6ZwgQU3fzg79F4rcv78tBHHaSX
 const privUint8arr = bs58.decode(privKeyString);
 const payer = Keypair.fromSecretKey(privUint8arr);
 
-const decimals = 9;
 const connection = new Connection(clusterApiUrl('devnet'), 'confirmed');
 
 const loadKeypair = (): Keypair => {
@@ -59,10 +58,10 @@ export const mintTokens = async (fromAddress: string, toAddress: string, amount:
 
 }
 
-export const burnTokens = async (fromAddress: string, toAddress: string, amount: number) => {
-    console.log("Burning tokens");
-}
+// export const burnTokens = async (fromAddress: string, toAddress: string, amount: number) => {
+//     console.log("Burning tokens");
+// }
 
-export const sendNativeTokens = async (fromAddress: string, toAddress: string, amount: number) => {
-    console.log("Sending native tokens");
-}
+// export const sendNativeTokens = async (fromAddress: string, toAddress: string, amount: number) => {
+//     console.log("Sending native tokens");
+// }

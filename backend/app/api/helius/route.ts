@@ -12,25 +12,8 @@ export async function POST(req: NextRequest): Promise<Response> {
       
       interface HeliusTransaction {
         accountData: AccountData[];
-      }
+      }      
       
-      interface MintResult {
-        // Add your mint result type here
-        transactionId?: string;
-        status: string;
-      }
-      
-      interface ErrorResponse {
-        error: string;
-        message?: string;
-        details?: Record<string, unknown>;
-      }
-      
-      interface SuccessResponse {
-        success: true;
-        data: MintResult;
-      }
-
 
     try {
       const body = (await req.json()) as HeliusTransaction[];
