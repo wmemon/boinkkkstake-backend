@@ -38,6 +38,7 @@ export const mintTokens = async (fromAddress: string, toAddress: string, amount:
 
     console.log("From account is: ", fromAccount);
     console.log("To account is: ", toAccount);
+    console.log("Amount is: ", amount)
     const mintTokenToAccount = await mintTo(
       connection,
       payer,
