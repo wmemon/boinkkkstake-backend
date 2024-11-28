@@ -30,16 +30,14 @@ const mint = loadKeypair();
 export const mintTokens = async (fromAddress: string, toAddress: string, amount: number) => {
     const fromAddressPubKey = new PublicKey(fromAddress);
     const toAddressPubKey = new PublicKey(toAddress);
-    console.log(mint);
     const metadata = await getTokenMetadata(connection, mint.publicKey);
-    console.log("\nMetadata:", JSON.stringify(metadata, null, 2));
     console.log("Minting tokens");
 
     const fromAccount = await getOrCreateAssociatedTokenAccount(connection, payer, mint.publicKey, fromAddressPubKey,false, undefined, undefined, TOKEN_2022_PROGRAM_ID);
-    console.log(fromAccount);
     const toAccount = await getOrCreateAssociatedTokenAccount(connection, payer, mint.publicKey, toAddressPubKey,false, undefined, undefined, TOKEN_2022_PROGRAM_ID);
-    console.log(toAccount);
 
+    console.log("From account is: ", fromAccount);
+    console.log("To account is: ", toAccount);
     const mintTokenToAccount = await mintTo(
       connection,
       payer,

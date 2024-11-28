@@ -2,8 +2,6 @@ import { mintTokens } from "@/utils/mintTokens";
 import { NextRequest } from "next/server";
 
 export async function POST(req: NextRequest): Promise<Response> {
-
-    console.log("reaching here");
     
     interface AccountData {
         account: string;
@@ -30,12 +28,10 @@ export async function POST(req: NextRequest): Promise<Response> {
       }
   
       const transaction = body[0];
-      
-      console.log("Transaction is: ");
-      console.log(transaction)
 
       // Extract data from transaction with type safety
       const fromAddress = transaction.accountData?.[0]?.account;
+      console.log("from account is: ", fromAddress)
       const toAddress = transaction.accountData?.[1]?.account;
       const amount = transaction.accountData?.[1]?.nativeBalanceChange;
   
