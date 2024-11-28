@@ -31,7 +31,6 @@ export const mintTokens = async (fromAddress: string, toAddress: string, amount:
     const fromAddressPubKey = new PublicKey(fromAddress);
     const toAddressPubKey = new PublicKey(toAddress);
     console.log(mint);
-    console.log("reaching here")
     const metadata = await getTokenMetadata(connection, mint.publicKey);
     console.log("\nMetadata:", JSON.stringify(metadata, null, 2));
     console.log("Minting tokens");

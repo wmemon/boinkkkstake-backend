@@ -31,6 +31,9 @@ export async function POST(req: NextRequest): Promise<Response> {
   
       const transaction = body[0];
       
+      console.log("Transaction is: ");
+      console.log(transaction)
+
       // Extract data from transaction with type safety
       const fromAddress = transaction.accountData?.[0]?.account;
       const toAddress = transaction.accountData?.[1]?.account;
