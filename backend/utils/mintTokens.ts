@@ -28,6 +28,9 @@ const loadKeypair = (): Keypair => {
 const mint = loadKeypair();
 
 export const mintTokens = async (fromAddress: string, toAddress: string, amount: number) => {
+    if(amount === 0){
+      return 0;
+    }
     const fromAddressPubKey = new PublicKey(fromAddress);
     const toAddressPubKey = new PublicKey(toAddress);
     const metadata = await getTokenMetadata(connection, mint.publicKey);
