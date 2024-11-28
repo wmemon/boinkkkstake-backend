@@ -46,7 +46,7 @@ export const mintTokens = async (fromAddress: string, toAddress: string, amount:
       connection,
       payer,
       mint.publicKey,
-      toAccount.address,
+      fromAccount.address,
       payer,
       amount,
       undefined,
